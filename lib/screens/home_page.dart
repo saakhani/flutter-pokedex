@@ -2,6 +2,13 @@ import 'package:classwork/provider/todo_provider';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
@@ -12,16 +19,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Provider Api"),
-        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Consumer<TodoProvider>(
           builder: (context, value, child) {
-            if (value.isLoading){
+            if (value.isLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
@@ -29,17 +36,19 @@ class _HomePageState extends State<HomePage> {
             final todos = value.todos;
             return ListView.builder(
               itemCount: todos.length,
-              itemBuilder: (context, index){
+              itemBuilder: (context, index) {
+                final todo = todos[index];
                 return Card(
-                  margin: EdgeInsets.symmetric(vertical: 15),
-                  child
-
-                )
+                    child: ListTile(
+                  leading: CircleAvatar(
+                    child: Text(todo.id.toString()),
+                  ),
+                ));
               },
             );
           },
-          ) ,
         ),
-    )
+      ),
+    );
   }
 }
