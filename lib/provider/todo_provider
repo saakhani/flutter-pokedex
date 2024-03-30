@@ -1,5 +1,3 @@
-
-
 class TodoProvider extends ChangeNotifier {
   final _service = TodoService();
   bool isLoading = false;
