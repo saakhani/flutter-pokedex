@@ -6,9 +6,9 @@ class PokemonProvider extends ChangeNotifier {
   final _service = PokemonService();
   bool isLoading = false;
   List<Pokemon> _pokemon = [];
-  List<Pokemon> get todos => _pokemon;
+  List<Pokemon> get pokemon => _pokemon;
 
-  Future<void> getAllTodos() async {
+  Future<void> getAllPokemon() async {
     isLoading = true;
     notifyListeners();
     final response = await _service.getAllPokemon();

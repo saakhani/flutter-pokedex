@@ -1,4 +1,5 @@
 import 'package:classwork/provider/pokemon_provider.dart';
+import 'package:classwork/screens/details_page.dart';
 import 'package:classwork/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: const HomePage(),
+        routes: {
+          '/details': (context) => const DetailsPage(),
+        },
       ),
     );
   }

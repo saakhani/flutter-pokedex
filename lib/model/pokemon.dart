@@ -14,8 +14,8 @@ class Pokemon {
   final String spawnTime;
   final List<double> multipliers;
   final List<String> weaknesses;
-  //List<Evolution> nextEvolution;
-  //List<Evolution> prevEvolution; 
+  List<Evolution>? nextEvolution;
+  List<Evolution>? prevEvolution; 
   
 
   Pokemon({
@@ -34,8 +34,8 @@ class Pokemon {
     required this.spawnTime,
     required this.multipliers,
     required this.weaknesses,
-    //this.nextEvolution = const([]);
-    //this.prevEvolution = [{num: '', name: ''}],
+    this.nextEvolution,
+    this.prevEvolution,
   });
 }
 
@@ -47,5 +47,12 @@ class Evolution{
     required this.num,
     required this.name,
   });
+
+  factory Evolution.fromJson(Map<String, dynamic> json){
+    return Evolution(
+      num: json["num"],
+      name: json["name"],
+    );
+  }
 }
 
